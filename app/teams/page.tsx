@@ -24,7 +24,8 @@ type Payment = {
         }
     })
 
-    return  teams.map((item) => {
+
+    return teams.map((item) => {
            return  {
                 id: item.id,
                 name:item.name,
@@ -35,6 +36,8 @@ type Payment = {
     })
 
   }
+  
+
 
 export default async function Employees() {
 

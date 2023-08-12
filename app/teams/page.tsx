@@ -47,7 +47,7 @@ export default async function Employees() {
     <div className='p-8'>
 
     <div>
-      <Link href='/create-user'>Add</Link>
+      <Link href='/create-team'>Add</Link>
     </div>
          <DataTable columns={columns} data={data} />
     </div>

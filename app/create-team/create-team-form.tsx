@@ -1,11 +1,7 @@
 'use client'
 
 import createTeam from '@/actions/create-team'
-import { DropDownUser } from '@/components/dropdownuser'
 import Input from '@/components/input/input'
-import { DropDown } from '@/components/ui/dropdown'
-import { User } from '@prisma/client'
-import { useRouter } from 'next/navigation'
 import React, { ChangeEvent, useState } from 'react'
 
 type InitialState = {

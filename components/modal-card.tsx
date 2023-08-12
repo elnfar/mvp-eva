@@ -11,15 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import updateUser from "@/actions/update-user"
-import { DropDown } from "./ui/dropdown"
 
 type InitialState = {
     id:string

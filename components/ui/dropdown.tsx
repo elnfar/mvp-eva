@@ -30,7 +30,6 @@ type DDType = {
  type DropDown = {
     value:string,
     setValue:(value:string) => void
-    frameworks:DDType[],
     teams:Team[] | null,
     user: User | null
 }

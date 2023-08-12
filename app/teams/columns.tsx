@@ -82,7 +82,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Edit</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => router.push(`/employees/${team.id}`)}
+              onClick={() => router.push(`/teams/${team.id}`)}
             >
               team page
             </DropdownMenuItem>

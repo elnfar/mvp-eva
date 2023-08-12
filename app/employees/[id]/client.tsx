@@ -12,29 +12,6 @@ type TeamProps = {
     teams:Team[] | null
 }
 
-const frameworks = [
-    {
-      value: "next.js",
-      label: "Next.js",
-    },
-    {
-      value: "sveltekit",
-      label: "SvelteKit",
-    },
-    {
-      value: "nuxt.js",
-      label: "Nuxt.js",
-    },
-    {
-      value: "remix",
-      label: "Remix",
-    },
-    {
-      value: "astro",
-      label: "Astro",
-    },
-  ]
-
 export default function Client({teams,user}:TeamProps) {
 
 
@@ -57,7 +34,7 @@ export default function Client({teams,user}:TeamProps) {
           <input type="hidden" defaultValue={value} name='teamId' id="teamId"/>
 
           <div className="space-x-4">
-            <DropDown teams={teams} user={user} value={value} setValue={setValue} frameworks={frameworks}/>
+            <DropDown teams={teams} user={user} value={value} setValue={setValue} />
             <Button disabled={value === user?.teamId} type="submit">Update</Button>
             {value === user?.teamId && <p className=" text-neutral-500 text-xs py-2">user does belong to this team already!</p>}
           </div>

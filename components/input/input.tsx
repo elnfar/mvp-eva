@@ -33,9 +33,9 @@ export default function Input({
         name={name}
         className={`
         w-full 
-        p-4 
-        pt-6 
+        py-3
         font-light
+        px-4
         bg-white 
         border-2 
         outline-none  

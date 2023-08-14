@@ -3,7 +3,7 @@
 import createUser from '@/actions/create-user'
 import Input from '@/components/input/input'
 import { DropDown } from '@/components/ui/dropdown'
-import { Team } from '@prisma/client'
+import { Team, User } from '@prisma/client'
 import React, { ChangeEvent, useState } from 'react'
 
 type InitialState = {
@@ -23,30 +23,6 @@ const initialState:InitialState = {
 type TeamProps = {
     teams:Team[] | null
 }
-
-const frameworks = [
-    {
-      value: "next.js",
-      label: "Next.js",
-    },
-    {
-      value: "sveltekit",
-      label: "SvelteKit",
-    },
-    {
-      value: "nuxt.js",
-      label: "Nuxt.js",
-    },
-    {
-      value: "remix",
-      label: "Remix",
-    },
-    {
-      value: "astro",
-      label: "Astro",
-    },
-  ]
-
 
 
 export default function CreateUserForm({teams}:TeamProps) {
@@ -79,7 +55,7 @@ export default function CreateUserForm({teams}:TeamProps) {
         <Input name='hashedPassword' type='password' value={state.hashedPassword} onChange={handleChange} id='hashedPassword' placeholder='password'/>
         
         <input type="hidden" value={value} onChange={handleChange} name='team'/>
-        <DropDown teams={teams} value={value} setValue={setValue} frameworks={frameworks}/>
+        <DropDown teams={teams} value={value} setValue={setValue} />
 
         <button type='submit' disabled={loading}>Create user</button>
     </form>

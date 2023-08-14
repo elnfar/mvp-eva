@@ -17,7 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { Team, User } from "@prisma/client"
+import { Team } from "@prisma/client"
 
 type DDType = {
     value: string;
@@ -31,14 +31,12 @@ type DDType = {
     value:string,
     setValue:(value:string) => void
     teams:Team[] | null,
-    user: User | null
 }
 
-export function DropDown({value,setValue,user,teams}:DropDown) {
+export function DropDown({value,setValue,teams}:DropDown) {
   const [open, setOpen] = React.useState(false)
 
   console.log(value);
-  console.log(user?.teamId);
   
   
 
@@ -51,7 +49,6 @@ export function DropDown({value,setValue,user,teams}:DropDown) {
         aria-expanded={open}
         className={`w-[200px] justify-between`}
       >
-        {/* {value === user?.teamId ? teams?.find((team) => team.id === value)?.name : ''} */}
         {value ? (
           teams?.find((team) => team.id === value)?.name
         ) : (

@@ -25,6 +25,7 @@ export default async function SingleEmployee({params}:{params:{id:string}}) {
                   <p className="text-[1.6rem]">Name: {user?.name}</p>
                   <p className="text-[14px] text-neutral-500">Email: {user?.email}</p>
                   <p className='text-[14px] text-neutral-500'>Team: {user?.team?.name}</p>
+                  <p>Salary: $ {user?.salary}</p>
               </div>
               <UserProfileImage/>
           </div>

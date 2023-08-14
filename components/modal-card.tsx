@@ -17,12 +17,14 @@ type InitialState = {
     id:string
     name:string,
     email:string,
+    salary:string,
     hashedPassword:string
 }
 
 const initialState:InitialState = {
     id:'',
     name:'',
+    salary:'',
     email:'',
     hashedPassword:''
 }
@@ -60,14 +62,18 @@ export function CardModal({userId,setOpenModal}:Props) {
               <input type="hidden" name="id" id="id" onChange={handleChange} value={userId}/>
               <Input id="name" name='name' placeholder="Name" value={state.name} onChange={handleChange}/>
 
+              <Label htmlFor="name">Salary</Label>
+              <Input type="number" id="salary" name='salary' placeholder="Salary" value={state.salary} onChange={handleChange}/>
+
             </div>
           </div>
+
 
 
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" onClick={() => setOpenModal((prev) => !prev)}>Cancel</Button>
-        <Button type="submit">Update</Button>
+        <Button disabled={!state.name || !state.salary} type="submit">Update</Button>
       </CardFooter>
       </form>
     </Card>

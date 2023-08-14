@@ -9,6 +9,7 @@ export type Payment = {
   email: string
   name: string
   team:string,
+  salary:string,
   createdAt:string
 }
 import { MoreHorizontal ,ArrowUpDown,} from "lucide-react"
@@ -45,6 +46,10 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "team",
     header: "Team",
+  },
+  {
+    accessorKey: "salary",
+    header: "Salary",
   },
   {
     accessorKey: "createdAt",

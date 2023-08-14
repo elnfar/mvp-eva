@@ -11,6 +11,7 @@ type Payment = {
     id: string
     email:string
     name:string
+    salary:string
     team:string
     createdAt:string
 }
@@ -33,6 +34,7 @@ type Payment = {
                 email:item.email,
                 name:item.name,
                 team:item.team?.name || '',
+                salary:item.salary || '0',
                 createdAt:item.createdAt.toLocaleString()
               }
     })

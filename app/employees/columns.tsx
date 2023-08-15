@@ -9,6 +9,7 @@ export type Payment = {
   email: string
   name: string
   team:string,
+  project:string,
   salary:string,
   createdAt:string
 }
@@ -46,6 +47,10 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "team",
     header: "Team",
+  },
+  {
+    accessorKey: "project",
+    header: "Project",
   },
   {
     accessorKey: "salary",

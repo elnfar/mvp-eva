@@ -13,6 +13,7 @@ type Payment = {
     name:string
     salary:string
     team:string
+    project:string
     createdAt:string
 }
     
@@ -24,15 +25,18 @@ type Payment = {
             role:"USER"
         },
         include: {
-            team:true
+            team:true,
+            project:true
         }
     })
 
+    
     return  employees.map((item) => {
            return  {
                 id: item.id,
                 email:item.email,
                 name:item.name,
+                project:item.project?.name || '',
                 team:item.team?.name || '',
                 salary:item.salary || '0',
                 createdAt:item.createdAt.toLocaleString()

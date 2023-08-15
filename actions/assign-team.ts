@@ -6,6 +6,8 @@ import { prisma } from "@/lib/prisma"
 export default async function assignTeam(data:FormData) {
     const userId = data.get('userId') as string
     const teamId = data.get('teamId') as string
+    const projectId = data.get('projectId') as string
+
     const salary = data.get('salary') as string
 
     await prisma.user.update({
@@ -14,6 +16,7 @@ export default async function assignTeam(data:FormData) {
         },
         data: {
             teamId:teamId,
+            projectId:projectId,
             salary:salary
         }
     })  

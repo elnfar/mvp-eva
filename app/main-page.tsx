@@ -1,6 +1,9 @@
+'use client'
+
 import MainBox from '@/components/main-box'
 import React from 'react'
-
+import { Card, Title, AreaChart } from "@tremor/react";
+import { Team } from '@prisma/client';
 
 const items = [
     {
@@ -10,7 +13,10 @@ const items = [
     {
         label:'Teams',
         href:'/teams'
-    },
+    },  {
+      label:'Projects',
+      href:'/projects'
+  },
     {
         label:'Admins',
         href:'/admins'
@@ -22,10 +28,23 @@ const items = [
 
 ]
 
-export default function MainPageView() {
-  return (
+
+  
+
+  interface MainPageProps {
+    teams:Team[] | null
+  }
+
+
+export default function MainPageView({teams}:MainPageProps) {
+  
+  
+
+    return (
     <div className='mx-auto py-16'>
-        <div className='grid grid-cols-2 gap-4 w-[60rem] mx-auto'>
+
+
+        <div className='grid sm:grid-cols-3 grid-cols-1 gap-4 sm:w-[80rem] w-[20rem] mx-auto'>
         {items.map((item) => (
             <MainBox label={item.label} href={item.href}/>
         ))}

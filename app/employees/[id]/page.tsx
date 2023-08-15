@@ -12,11 +12,15 @@ export default async function SingleEmployee({params}:{params:{id:string}}) {
         },
         include:{
             team:true,
+            project:true
         }
 
     })
     const teams = await prisma.team.findMany({})
+    const projects = await prisma.projects.findMany({})
 
+    console.log(user?.project);
+    
 
   return (
     <div>
@@ -25,12 +29,15 @@ export default async function SingleEmployee({params}:{params:{id:string}}) {
                   <p className="text-[1.6rem]">Name: {user?.name}</p>
                   <p className="text-[14px] text-neutral-500">Email: {user?.email}</p>
                   <p className='text-[14px] text-neutral-500'>Team: {user?.team?.name}</p>
-                  <p>Salary: $ {user?.salary}</p>
+                  <p className='text-[14px] text-neutral-500'>Salary: $ {user?.salary}</p>
+
+                  <p className='text-[20px] text-neutral-800'>Working on: {user?.project ? user.project.name : 'No project assigned'}</p>
+
               </div>
               <UserProfileImage/>
           </div>
         <div className='container flex justify-center py-12'>
-            <Client teams={teams} user={user}/>
+            <Client projects={projects} teams={teams} user={user}/>
          </div>
     </div>
   )

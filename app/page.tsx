@@ -5,14 +5,23 @@ import MainPageView from "./main-page";
 export default async function Home() {
 
   const user = await currentSessionUser();
+  const teams = await prisma.team.findMany({
+    include: {
+      users:{
+        where: {
+          role:"USER"
+        }
+      }
+    }
+  })
 
-  console.log(user);
-
-
-
+  
+  
+  const salaries = teams.map((item) => item.users.map((user) => parseInt(user.salary || ''))).reduce((acc,curr) => acc.concat(curr),[]).filter(Number.isFinite)
+  
   return (
     <main>
-        <MainPageView/>
+        <MainPageView teams={teams}/>
     </main>
   )
 }

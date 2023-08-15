@@ -29,7 +29,17 @@ model User {
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
   teamId    String?  // This allows for a user to optionally be part of a team
+  projectId String?
+  project Projects? @relation(fields: [projectId], references: [id])
   team Team?  @relation(fields: [teamId], references: [id])
+}
+
+model Projects {
+  id  String     @id @default(uuid()) @db.Text
+  name String
+  userCount Int?
+  userId String?
+  users User[]
 }
 
 model Team {

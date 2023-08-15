@@ -20,7 +20,7 @@ export default async function RootLayout({
   const user = await currentSessionUser();
   return (
     <html lang="en">
-      <body className=' bg-neutral-100'>
+      <body className=''>
         {user?.role === "ADMIN" && <Navbar/>}
            {children}
       </body>

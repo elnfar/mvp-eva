@@ -20,8 +20,8 @@ import {
 import { Team } from "@prisma/client"
 
 type DDType = {
-    value: string;
-    label:string
+    id:string,
+    name:string
   };
 
 
@@ -30,10 +30,11 @@ type DDType = {
  type DropDown = {
     value:string,
     setValue:(value:string) => void
-    teams:Team[] | null,
+    items:DDType[] | null,
+    defaultName:string
 }
 
-export function DropDown({value,setValue,teams}:DropDown) {
+export function DropDown({value,setValue,items,defaultName}:DropDown) {
   const [open, setOpen] = React.useState(false)
 
   console.log(value);
@@ -50,9 +51,9 @@ export function DropDown({value,setValue,teams}:DropDown) {
         className={`w-[200px] justify-between`}
       >
         {value ? (
-          teams?.find((team) => team.id === value)?.name
+          items?.find((team) => team.id === value)?.name
         ) : (
-          <span className="opacity-50">Teams</span>
+          <span className="opacity-50">{defaultName}</span>
         )}
         <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
@@ -60,7 +61,7 @@ export function DropDown({value,setValue,teams}:DropDown) {
     <PopoverContent className="w-[200px] p-0">
       <Command>
         <CommandGroup>
-          {teams?.map((framework) => (
+          {items?.map((framework) => (
             <CommandItem
               key={framework.name}
               onSelect={(current) => {

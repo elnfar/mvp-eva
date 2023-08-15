@@ -4,11 +4,8 @@ import { ColumnDef } from "@tanstack/react-table"
 
 export type Payment = {
   id: string
-  email: string
   name: string
-  team:string,
-  project:string,
-  salary:string,
+  users:string,
   createdAt:string
 }
 import { MoreHorizontal ,ArrowUpDown,} from "lucide-react"
@@ -35,24 +32,12 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Id",
   },
   {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
     accessorKey: "name",
     header: "Name",
   },
   {
-    accessorKey: "team",
-    header: "Team",
-  },
-  {
-    accessorKey: "project",
-    header: "Project",
-  },
-  {
-    accessorKey: "salary",
-    header: "Salary",
+    accessorKey: "users",
+    header: "Users",
   },
   {
     accessorKey: "createdAt",
@@ -76,7 +61,9 @@ export const columns: ColumnDef<Payment>[] = [
       const [openModal,setOpenModal] = useState(false)
 
       const router = useRouter();
-      const user = row.original
+      const project = row.original
+
+      
 
       return (
         <>
@@ -90,20 +77,20 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Edit</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => router.push(`/employees/${user.id}`)}
+              onClick={() => router.push(`/projects/${project.id}`)}
             >
-              user page
+              project page
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <form action={removeUser}>
-              <input type="hidden" value={user.id} name="id"/>
-              <Button type="submit" variant="outline" className="p-0 m-0 border-none outline-none text-xsm">remove employee</Button>
+              <input type="hidden" value={project.id} name="id"/>
+              <Button type="submit" variant="outline" className="p-0 m-0 border-none outline-none text-xsm">remove project</Button>
             </form>
             <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
-          {openModal && (<CardModal userId={user.id} setOpenModal={setOpenModal}/>)}
+          {openModal && (<CardModal userId={project.id} setOpenModal={setOpenModal}/>)}
 
         </>
       )

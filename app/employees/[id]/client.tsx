@@ -51,7 +51,7 @@ export default function Client({teams,user,projects}:TeamProps) {
             <DropDown defaultName='Teams' items={teams} value={teamId} setValue={setTeamId} />
             <DropDown defaultName='Projects' items={projects} value={projectId} setValue={setProjectId} />
             <Input type="number" name="salary" placeholder="Salary" value={state.salary} id="salary" onChange={handleChange}/>
-            <Button disabled={teamId === user?.teamId || state.salary === 0 || !teamId} type="submit">Update</Button>
+            <Button disabled={teamId === user?.teamId} type="submit">Update</Button>
             {teamId === user?.teamId && <p className=" text-neutral-500 text-xs py-2">user does belong to this team already!</p>}
           </div>
           </form>

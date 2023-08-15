@@ -17,11 +17,13 @@ export default async function RootLayout({
 }) {
 
 
-  const user = await currentSessionUser();
+  const currentUser = await currentSessionUser();
+  console.log(currentUser);
+  
   return (
     <html lang="en">
       <body className=''>
-        {user?.role === "ADMIN" && <Navbar/>}
+          <Navbar currentUser={currentUser}/>
            {children}
       </body>
     </html>

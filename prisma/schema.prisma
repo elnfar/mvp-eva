@@ -39,6 +39,8 @@ model Projects {
   name String
   userCount Int?
   userId String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
   users User[]
 }
 

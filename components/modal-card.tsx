@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import updateUser from "@/actions/update-user"
+import { DropDown } from "./ui/dropdown"
 
 type InitialState = {
     id:string
@@ -39,8 +40,6 @@ type Props ={
 export function CardModal({userId,setOpenModal}:Props) {
     const [state,setState] = React.useState(initialState)
 
-    
-
     function handleChange(event:React.ChangeEvent<HTMLInputElement>) {
         setState({...state, [event.target.name]: event.target.value})
     }
@@ -64,7 +63,6 @@ export function CardModal({userId,setOpenModal}:Props) {
 
               <Label htmlFor="name">Salary</Label>
               <Input type="number" id="salary" name='salary' placeholder="Salary" value={state.salary} onChange={handleChange}/>
-
             </div>
           </div>
 

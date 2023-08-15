@@ -31,11 +31,7 @@ export default async function currentSessionUser() {
         return null;
       }
   
-      return {
-        ...currentUser,
-        createdAt: currentUser.createdAt.toISOString(),
-        updatedAt: currentUser.updatedAt.toISOString(),
-      }
+      return currentUser
 
     }catch(error:any) {
         throw new Error(error)

@@ -13,9 +13,14 @@ const items = [
     {
         label:'Teams',
         href:'/teams'
-    },  {
+    },  
+    {
       label:'Projects',
       href:'/projects'
+  },
+  {
+    label:'Salary',
+    href:'/salary'
   },
     {
         label:'Admins',

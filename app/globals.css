@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
  
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bricolage+Grotesque:opsz,wght@10..48,600&family=Dongle&family=Duru+Sans&family=Kanit:wght@100&family=Lato:ital,wght@0,300;0,700;0,900;1,100&family=Montserrat:wght@200;600&family=Poppins:ital,wght@0,100;0,400;0,500;1,500&family=Roboto+Mono:wght@200;400&family=Roboto:wght@500;900&family=Rubik:wght@500;800&display=swap');
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -76,3 +77,6 @@
   }
 }
 
+.font-baback {
+  font-family: 'Dongle', sans-serif;
+}

@@ -42,7 +42,7 @@ export default async function page({params}:{params:{id:string}}) {
                         <p className='text-[2rem]'>Members</p>
                             <div className='flex flex-col'> 
                             {team?.users.map((user) => (
-                                <div className=' flex items-center'>
+                                <div key={user.id} className=' flex items-center'>
                                 <span>{user.name}</span>
 
                                     <form action={removeUserFromTeam}>

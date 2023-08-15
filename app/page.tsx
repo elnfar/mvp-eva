@@ -1,6 +1,7 @@
 import currentSessionUser from "@/actions/session-user"
 import { prisma } from "@/lib/prisma";
 import MainPageView from "./main-page";
+export const dynamic = "force-dynamic" 
 
 export default async function Home() {
 

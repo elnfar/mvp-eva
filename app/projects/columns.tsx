@@ -23,7 +23,7 @@ import {
 import { useState } from "react"
 import { CardModal } from "@/components/modal-card"
 import removeUser from "@/actions/remove-user"
-import {useRouter } from "next/navigation"
+import Link from "next/link"
 
 export const columns: ColumnDef<Payment>[] = [
 
@@ -58,9 +58,9 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const [openModal,setOpenModal] = useState(false)
+      // const [openModal,setOpenModal] = useState(false)
 
-      const router = useRouter();
+      // const router = useRouter();
       const project = row.original
 
       
@@ -76,21 +76,21 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Edit</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => router.push(`/projects/${project.id}`)}
+            <Link
+              href={`/projects/${project.id}`}
             >
               project page
-            </DropdownMenuItem>
+            </Link>
             <DropdownMenuSeparator />
             <form action={removeUser}>
               <input type="hidden" value={project.id} name="id"/>
               <Button type="submit" variant="outline" className="p-0 m-0 border-none outline-none text-xsm">remove project</Button>
             </form>
-            <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem>
+            {/* <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
 
-          {openModal && (<CardModal userId={project.id} setOpenModal={setOpenModal}/>)}
+          {/* {openModal && (<CardModal userId={project.id} setOpenModal={setOpenModal}/>)} */}
 
         </>
       )

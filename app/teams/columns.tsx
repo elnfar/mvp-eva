@@ -27,6 +27,7 @@ import { useState } from "react"
 import { CardModal } from "@/components/modal-card"
 import removeUser from "@/actions/remove-user"
 import {useRouter } from "next/navigation"
+import Link from "next/link"
 
 export const columns: ColumnDef<Payment>[] = [
 
@@ -65,9 +66,9 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const [openModal,setOpenModal] = useState(false)
+      // const [openModal,setOpenModal] = useState(false)
 
-      const router = useRouter();
+      // const router = useRouter();
       const team = row.original
 
       return (
@@ -81,21 +82,21 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Edit</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => router.push(`/teams/${team.id}`)}
+            <Link
+              href={`/teams/${team.id}`}
             >
               team page
-            </DropdownMenuItem>
+            </Link>
             <DropdownMenuSeparator />
             <form action={removeUser}>
               <input type="hidden" value={team.id} name="id"/>
               <Button type="submit" variant="outline" className="p-0 m-0 border-none outline-none text-xsm">remove team</Button>
             </form>
-            <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem>
+            {/* <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
 
-          {openModal && (<CardModal userId={team.id} setOpenModal={setOpenModal}/>)}
+          {/* {openModal && (<CardModal userId={team.id} setOpenModal={setOpenModal}/>)} */}
 
         </>
       )

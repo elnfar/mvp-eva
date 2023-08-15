@@ -23,10 +23,10 @@ export default async function page({params}:{params:{id:string}}) {
 
 
 
-            <h2 className="py-4">Who's working on this project:</h2>
+            <h2 className="py-4">Whos working on this project:</h2>
             <div className="flex flex-col py-2">   
             {project?.users.map((user) => (
-                <Link href={`/employees/${user.id}`} className="text-[1.4rem]">{user.name}</Link>
+                <Link key={user.id} href={`/employees/${user.id}`} className="text-[1.4rem]">{user.name}</Link>
             ))}
             </div>
 

@@ -55,7 +55,7 @@ export default function CreateUserForm({teams}:TeamProps) {
         <Input name='hashedPassword' type='password' value={state.hashedPassword} onChange={handleChange} id='hashedPassword' placeholder='password'/>
         
         <input type="hidden" value={value} onChange={handleChange} name='team'/>
-        <DropDown teams={teams} value={value} setValue={setValue} />
+        <DropDown defaultName='Teams' items={teams} value={value} setValue={setValue} />
 
         <button type='submit' disabled={loading}>Create user</button>
     </form>

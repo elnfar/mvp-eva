@@ -30,7 +30,7 @@ export default function Client({users,team}:Props) {
     <div>
       <form action={assignUserToTeam}>
             {users?.map((user) => (
-                <div>
+                <div key={user.id}>
                     {user.teamId === team?.id ? null : (
                         <div>
                         <label htmlFor="">{user.name}</label>

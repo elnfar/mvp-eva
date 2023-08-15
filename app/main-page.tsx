@@ -51,7 +51,7 @@ export default function MainPageView({teams}:MainPageProps) {
 
         <div className='grid sm:grid-cols-3 grid-cols-1 gap-4 sm:w-[80rem] w-[20rem] mx-auto'>
         {items.map((item) => (
-            <MainBox label={item.label} href={item.href}/>
+            <MainBox key={item.label} label={item.label} href={item.href}/>
         ))}
         </div>
     </div>

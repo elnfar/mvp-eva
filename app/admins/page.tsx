@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma"
 import Image from "next/image"
+export const dynamic = "force-dynamic" 
 
 
 export default async function page() {
@@ -13,7 +14,7 @@ export default async function page() {
   return (
     <div>
         {admins.map((admin) => (
-            <div className="flex items-center container py-4 gap-5">
+            <div key={admin.id} className="flex items-center container py-4 gap-5">
                 <div>
                 <h1>{admin.name}</h1>
                 <p>{admin.email}</p>

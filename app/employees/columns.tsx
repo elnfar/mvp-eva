@@ -12,9 +12,8 @@ export type Payment = {
   createdAt:string
 }
 import { MoreHorizontal ,ArrowUpDown,} from "lucide-react"
- 
+ import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,6 +28,7 @@ import removeUser from "@/actions/remove-user"
 import {useRouter } from "next/navigation"
 
 export const columns: ColumnDef<Payment>[] = [
+ 
 
   {
     accessorKey: "id",
@@ -73,9 +73,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const [openModal,setOpenModal] = useState(false)
-
-      const router = useRouter();
+      // const [openModal,setOpenModal] = useState([])
       const user = row.original
 
       return (
@@ -89,21 +87,20 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Edit</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => router.push(`/employees/${user.id}`)}
+            <Link href={`/employees/${user.id}`}
             >
               user page
-            </DropdownMenuItem>
+            </Link>
             <DropdownMenuSeparator />
             <form action={removeUser}>
               <input type="hidden" value={user.id} name="id"/>
               <Button type="submit" variant="outline" className="p-0 m-0 border-none outline-none text-xsm">remove employee</Button>
             </form>
-            <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem>
+            {/* <DropdownMenuItem onClick={() => setOpenModal(!openModal)}>view and edit</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
 
-          {openModal && (<CardModal userId={user.id} setOpenModal={setOpenModal}/>)}
+          {/* {openModal && (<CardModal userId={user.id} setOpenModal={setOpenModal}/>)} */}
 
         </>
       )

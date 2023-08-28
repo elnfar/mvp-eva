@@ -9,16 +9,9 @@ import MainNav from '@/components/navbar/main-nav'
 
 
 export const metadata: Metadata = {
-  title: 'Schedgify Admin',
-  description: 'Admin dashboard of Eva',
+  title: 'schedgify.com',
+  description: 'schedgofy main',
 }
-
-
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work & Task' },
-  { href: '/schedule', label: 'Schedule' }
-]
 
 export default async function RootLayout({
   children,
@@ -32,7 +25,7 @@ export default async function RootLayout({
   
   return (
     <html lang="en">
-      <body className=' bg-[#e8f4ff]'>
+      <body>
           {/* <Navbar currentUser={currentUser}/> */}
           <MainNav/>
           {children}
@@ -40,19 +33,3 @@ export default async function RootLayout({
     </html>
   )
 }
-
-
-// const Sidebar = () => {
-//   return (
-//     <div className='w-1/4 py-4 bg-white rounded-sm  shadow-md'>
-//       <ul className="p-2  border-black">
-//           {links.map((link) => (
-//             <SidebarListItem key={link.href} {...link} />
-//           ))}
-//           <div className='border-[1px]'/>
-//         </ul>
-
-//     </div>
-    
-//   )
-// }

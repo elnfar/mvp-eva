@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bricolage+Grotesque:opsz,wght@10..48,600&family=Dongle&family=Duru+Sans&family=Kanit:wght@100&family=Lato:ital,wght@0,300;0,700;0,900;1,100&family=Montserrat:wght@200;600&family=Phudu:wght@800;900&family=Poppins:ital,wght@0,100;0,400;0,500;1,500&family=Roboto+Mono:wght@200;400&family=Roboto:wght@500;900&family=Rubik:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bricolage+Grotesque:opsz,wght@10..48,600&family=Dongle&family=Duru+Sans&family=Kanit:wght@100&family=Lato:ital,wght@0,300;0,700;0,900;1,100&family=Montserrat:wght@200;600&family=Poppins:ital,wght@0,100;0,400;0,500;1,500&family=Roboto+Mono:wght@200;400&family=Roboto:wght@500;900&family=Rubik:wght@500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bricolage+Grotesque:opsz,wght@10..48,600&family=Dongle&family=Duru+Sans&family=Kanit:wght@100&family=Lato:ital,wght@0,300;0,700;0,900;1,100&family=Montserrat:wght@200;600&family=Poppins:ital,wght@0,100;0,400;0,500;1,500&family=Roboto+Mono:wght@200;400&family=Roboto:wght@500;900&family=Rubik:wght@500;800&display=swap');
 @layer base {
   :root {
@@ -73,10 +76,21 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground
+
   }
 }
 
 .font-baback {
   font-family: 'Dongle', sans-serif;
 }
+.font-lato {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Bakbak One', cursive;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Duru Sans', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-family: 'Phudu',sans-serif;
+}
+

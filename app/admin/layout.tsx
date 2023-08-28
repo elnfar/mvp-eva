@@ -6,6 +6,10 @@ import { SidebarListItem } from '@/components/SidebarListItem'
 import Input from '@/components/input/input'
 
 
+export const metadata: Metadata = {
+  title: 'admin schedgify',
+  description: 'schedgofy main',
+}
 const links = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work & Task' },

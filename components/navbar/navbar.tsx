@@ -5,11 +5,13 @@ import { signOut } from "next-auth/react"
 import Link from "next/link"
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { Activity, Bell, HelpCircle, Inbox, MenuIcon, Search, UserPlus2 } from "lucide-react";
+import { Session } from "next-auth";
 
 
 type Role = "ADMIN" | "USER"; // Add other roles if you have them
 
-type User = {
+type UserType = {
   id: string;
   name: string;
   email: string;
@@ -23,24 +25,40 @@ type User = {
   projectId: string | null;
 }
 
+
+type SessionUserType = {
+  currentUser: UserType;
+  session: Session;
+}
 type NavbarProps = {
-  currentUser: User | null;
+  currentUser: SessionUserType | null;
+
 }
 export default function Navbar({currentUser}:NavbarProps) {
 
   const [open,setOpen] = useState(false)
 
   return (
-    <header className=" py-6 shadow-lg relative border-red-100 border-b-2">
+    <header className=" relative">
         <nav className="p-2 container flex justify-between items-center">
-            <Link href='/' className="text-[2.4rem] font-mono font-extrabold underline">Ev<span className=" text-purple-400">a</span></Link>
+          <div className="flex gap-4">
+           <MenuIcon/>
+           <h1 className=" font-light"><span className="font-bold">eva</span> system management</h1>
+          </div>
+           
             <ul className="flex gap-6 justify-end uppercase items-center text-[18px] text-neutral-500">
-                <li><Link href='/online'>online</Link></li>
-                <li><Link href='/track'>track</Link></li>
-                <li><Link href='/help'>help</Link></li>
+                <li><Link href='/notifications'><Bell size={19} className="text-zinc-900"/></Link></li>
+                <li><Link href='/inbox'><Inbox size={19} className="text-zinc-900"/></Link></li>
+                <li><Link href='/activity'><Activity size={19} className="text-zinc-900"/></Link></li>
+                <li className="border-r-2 pr-2"><Link href='/activity'><UserPlus2 size={19} className="text-zinc-900"/></Link></li>
+
+                <li><Link href='/activity'><Search size={19} className="text-zinc-900"/></Link></li>
+                <li><Link href='/activity'><HelpCircle size={19} className="text-zinc-900"/></Link></li>
+
+
                 {currentUser ? (
               <button onClick={() => setOpen(prev => !prev)}>
-              <UserProfileImage/>
+              <UserProfileImage currentUser={currentUser}/>
               </button>
                 ) : (
                   <Link href='/admin-login'>Login</Link>

@@ -13,7 +13,7 @@ export async function getSession() {
 export default async function currentSessionUser() {
     try {
         const session = await getSession();
-
+        
 
         if (!session?.user?.email) {
             return null;
@@ -31,7 +31,9 @@ export default async function currentSessionUser() {
         return null;
       }
   
-      return currentUser
+      return {
+        currentUser,session
+      }
 
     }catch(error:any) {
         throw new Error(error)

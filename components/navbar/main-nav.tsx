@@ -59,8 +59,8 @@ export default function MainNav() {
 
         <div className='hidden lg:flex gap-6'>
             {links.map((item) => (
-                <ul>
-                 <LinkProps key={item.href} {...item}/>
+                <ul key={item.href}>
+                 <LinkProps {...item}/>
                 </ul>
             ))}
             </div>
@@ -68,7 +68,7 @@ export default function MainNav() {
 
             <div className='hidden  lg:flex gap-5 items-center'>
                 {secondary_links.map((item) => (
-                    <ul>
+                    <ul key={item.href}>
                         <LinkProps key={item.href} {...item}/>
                     </ul>
                 ))}
@@ -90,7 +90,7 @@ export default function MainNav() {
 
                           <div className='flex flex-col justify-center px-4 gap-4'>
                             {secondary_links.map((item) => (
-                                <ul>
+                                <ul key={item.href}>
                                    <Link className='text-[1.6rem]' href={item.href}>{item.label}</Link>
                                 </ul>
                             ))}

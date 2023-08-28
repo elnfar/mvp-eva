@@ -11,7 +11,7 @@ export default async function removeUser(data:FormData) {
 
     const id = data.get('id') as string
 
-    if(user?.role === "ADMIN") {
+    if(user?.currentUser.role === "ADMIN") {
         await prisma.user.delete({
             where: {
                 id

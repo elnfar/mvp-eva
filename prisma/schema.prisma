@@ -32,6 +32,9 @@ model User {
   projectId String?
   project Projects? @relation(fields: [projectId], references: [id])
   team Team?  @relation(fields: [teamId], references: [id])
+  jobListings    JobListing[] 
+
+
 }
 
 model Projects {
@@ -51,4 +54,34 @@ model Team {
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
   users User[]
+}
+
+model JobListing {
+  id               String    @id @default(uuid())
+  title            String
+  companyName      String
+  location         String
+  salary           String
+  type             String
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  expiresAt        DateTime?
+  postedAt         DateTime?
+  applications     Applications[] 
+  userId        String?       // New field: foreign key that references the User who created this job listing
+  createdBy     User?        @relation(fields: [userId], references: [id]) 
+
+}
+
+model Applications {
+  id    String    @id @default(uuid())
+  name String
+  email String
+  linkedIn String
+  resume String
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  jobListingId     String?     
+  jobListing       JobListing?   @relation(fields: [jobListingId], references: [id])
 }

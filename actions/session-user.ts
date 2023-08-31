@@ -31,9 +31,7 @@ export default async function currentSessionUser() {
         return null;
       }
   
-      return {
-        currentUser,session
-      }
+      return currentUser
 
     }catch(error:any) {
         throw new Error(error)

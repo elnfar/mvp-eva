@@ -6,12 +6,15 @@ import Navbar from '@/components/navbar/navbar'
 import { SidebarListItem } from '@/components/SidebarListItem'
 import Input from '@/components/input/input'
 import MainNav from '@/components/navbar/main-nav'
+import { Alegreya_Sans_SC } from 'next/font/google'
 
 
 export const metadata: Metadata = {
   title: 'schedgify.com',
   description: 'schedgofy main',
 }
+const inter = Alegreya_Sans_SC({ subsets: ["latin"],weight:"400" })
+
 
 export default async function RootLayout({
   children,
@@ -24,10 +27,10 @@ export default async function RootLayout({
 
   
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body>
           {/* <Navbar currentUser={currentUser}/> */}
-          <MainNav/>
+          <MainNav currentUser={currentUser}/>
           {children}
       </body>
     </html>

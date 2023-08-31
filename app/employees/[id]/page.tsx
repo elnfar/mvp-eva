@@ -34,7 +34,6 @@ export default async function SingleEmployee({params}:{params:{id:string}}) {
                   <p className='text-[20px] text-neutral-800'>Working on: {user?.project ? user.project.name : 'No project assigned'}</p>
 
               </div>
-              <UserProfileImage/>
           </div>
         <div className='container flex justify-center py-12'>
             <Client projects={projects} teams={teams} user={user}/>

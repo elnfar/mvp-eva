@@ -37,6 +37,7 @@ export default function Input({
         font-light
         px-4
         bg-white 
+        font-sans
         border-2 
         outline-none  
           text-black 

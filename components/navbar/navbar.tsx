@@ -54,17 +54,18 @@ export default function Navbar({currentUser}:NavbarProps) {
 
                 <li><Link href='/activity'><Search size={19} className="text-zinc-900"/></Link></li>
                 <li><Link href='/activity'><HelpCircle size={19} className="text-zinc-900"/></Link></li>
-
-
-                {currentUser ? (
-              <button onClick={() => setOpen(prev => !prev)}>
-              <UserProfileImage currentUser={currentUser}/>
-              </button>
-                ) : (
-                  <Link href='/admin-login'>Login</Link>
-                )}
                
             </ul>
+
+            <div>
+                {currentUser ? (
+                <button onClick={() => setOpen(prev => !prev)}>
+                <UserProfileImage currentUser={currentUser}/>
+                </button>
+                  ) : (
+                    <Link href='/login'>Login</Link>
+                  )}
+              </div>
         </nav>
         {open && (
           <div className="absolute  right-5 -bottom-5">
